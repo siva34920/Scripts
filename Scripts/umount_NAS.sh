@@ -13,7 +13,7 @@ mount_point="$1"
 # Verify the mount point is currently mounted
 if mountpoint -q "$mount_point"; then
   echo "Mount point $mount_point is active. Executing playbook to remove entry and unmount..."
-  ansible-playbook -i inv /etc/ansible/remove_mount.yml \
+  ansible-playbook -i /etc/ansible/Master /etc/ansible/playbook/remove_mount.yml \
     --extra-vars "mount_point=$mount_point"
 else
   echo "No mount point $mount_point found on this server."
